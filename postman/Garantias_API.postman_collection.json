@@ -1,0 +1,304 @@
+{
+  "info": {
+    "_postman_id": "e48e706a-9f4e-4e0a-b351-dcc26b5ab173",
+    "name": "Garantias API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33440047"
+  },
+  "item": [
+    {
+      "name": "Obtener Tickets",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status 200\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Respuesta contiene datos\", () => {\r",
+              "    const response = pm.response.json();\r",
+              "    pm.expect(response.length).to.be.greaterThan(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/tickets",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tickets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Ticket",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Status 200\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Ticket creado correctamente\", () => {\r",
+              "\r",
+              "    pm.expect(response.id).to.exist;\r",
+              "\r",
+              "    pm.expect(response.serie)\r",
+              "        .to.include(\"SERIE-\");\r",
+              "\r",
+              "});\r",
+              "\r",
+              "pm.environment.set(\r",
+              "    \"ticketId\",\r",
+              "    response.id\r",
+              ");\r",
+              "\r",
+              "pm.environment.set(\r",
+              "    \"ticketSerie\",\r",
+              "    response.serie\r",
+              ");"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nroInventario\": \"QA-{{$timestamp}}\",\r\n  \"serie\": \"SERIE-{{$timestamp}}\",\r\n  \"problema\": \"Prueba Postman\",\r\n  \"tipoDano\": 1,\r\n  \"procedeGarantia\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/tickets",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tickets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Ticket por ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Status 200\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El ID es correcto\", () => {\r",
+              "    pm.expect(response.id)\r",
+              "        .to.eql(parseInt(pm.environment.get(\"ticketId\")));\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/tickets/{{ticketId}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tickets",
+            "{{ticketId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar Ticket",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status 200\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"observacion\": \"Actualizado desde Postman\",\r\n  \"ticketRimac\": \"RIMAC-POSTMAN\",\r\n  \"nroCaso\": \"CASO-POSTMAN\",\r\n  \"tipoDano\": 2,\r\n  \"procedeGarantia\": false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/tickets/{{ticketId}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tickets",
+            "{{ticketId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar Ticket",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Status 200\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Serie encontrada\", () => {\r",
+              "\r",
+              "    pm.expect(response.serie)\r",
+              "        .to.eql(\r",
+              "            pm.environment.get(\"ticketSerie\")\r",
+              "        );\r",
+              "\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/tickets/buscar?serie={{ticketSerie}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tickets",
+            "buscar"
+          ],
+          "query": [
+            {
+              "key": "serie",
+              "value": "{{ticketSerie}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar Ticket",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status correcto\", () => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/tickets/{{ticketId}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "tickets",
+            "{{ticketId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}
