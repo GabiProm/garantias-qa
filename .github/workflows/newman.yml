@@ -1,0 +1,26 @@
+name: Newman API Tests
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Collection
+        run: |
+          newman run postman/Garantias_API.postman_collection.json \
+          -e postman/STM_Local_Docker.postman_environment.json
