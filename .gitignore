@@ -1,25 +1,67 @@
+# =========================
+# Node.js
+# =========================
 
-# Playwright
 node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
-
-
-# Evidencias temporales
-evidences/
-
-# Logs
-*.log
 npm-debug.log*
+*.log
 
+# =========================
+# Variables de entorno
+# =========================
 
-# Variables locales
 .env
 .env.*
+!.env.example
 
-# Archivos del sistema
+# =========================
+# Playwright
+# =========================
+
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# Videos, screenshots y traces
+*.webm
+*.zip
+
+# =========================
+# Evidencias personalizadas
+# =========================
+
+evidences/
+
+# =========================
+# IDEs
+# =========================
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+.idea/
+
+# =========================
+# Sistema Operativo
+# =========================
+
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# =========================
+# Cobertura (si la agregas luego)
+# =========================
+
+coverage/
+.nyc_output/
+
+# =========================
+# Archivos temporales
+# =========================
+
+*.tmp
+*.temp

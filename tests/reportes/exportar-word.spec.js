@@ -1,6 +1,10 @@
-const { test, expect } = require("@playwright/test");
+const {
+    test,
+    expect
+} = require("../../fixtures/pages.fixture");
 
-test("Exportar informe Word", async ({ page }) => {
+test("@reportes @regression Exportar informe Word",
+async ({ page }) => {
 
     await page.goto("/dashboard");
 

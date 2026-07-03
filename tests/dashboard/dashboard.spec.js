@@ -1,10 +1,18 @@
-const { test, expect } = require("@playwright/test");
+const {
+    test,
+    expect
+} = require("../../fixtures/pages.fixture");
 
 test.describe("Dashboard", () => {
 
-    test("Dashboard carga correctamente", async ({ page }) => {
+    test.beforeEach(async ({ page }) => {
 
         await page.goto("/dashboard");
+
+    });
+
+    test("@dashboard @smoke Dashboard carga correctamente",
+    async ({ page }) => {
 
         await expect(
             page.getByTestId("kpi-total-tickets")
@@ -24,9 +32,8 @@ test.describe("Dashboard", () => {
 
     });
 
-    test("Dashboard muestra los graficos", async ({ page }) => {
-
-        await page.goto("/dashboard");
+    test("@dashboard @regression Dashboard muestra los graficos",
+    async ({ page }) => {
 
         await expect(
             page.getByTestId("chart-garantias")
@@ -42,9 +49,8 @@ test.describe("Dashboard", () => {
 
     });
 
-    test("Filtro ultimos 7 dias funciona", async ({ page }) => {
-
-        await page.goto("/dashboard");
+    test("@dashboard @regression Filtro ultimos 7 dias funciona",
+    async ({ page }) => {
 
         await page
             .getByTestId("btn-ultimos-7-dias")
@@ -56,9 +62,8 @@ test.describe("Dashboard", () => {
 
     });
 
-    test("Limpiar filtros funciona", async ({ page }) => {
-
-        await page.goto("/dashboard");
+    test("@dashboard @regression Limpiar filtros funciona",
+    async ({ page }) => {
 
         await page
             .getByTestId("btn-ultimos-7-dias")

@@ -4,6 +4,12 @@
   "type": "commonjs",
   "scripts": {
     "test": "playwright test",
+    "smoke": "playwright test --grep @smoke",
+    "regression": "playwright test --grep @regression",
+    "crud": "playwright test --grep @crud",
+    "dashboard": "playwright test --grep @dashboard",
+    "reportes": "playwright test --grep @reportes",
+    "apiui": "playwright test --grep @apiui",
     "test:ui": "playwright test --ui",
     "report": "playwright show-report"
   },
