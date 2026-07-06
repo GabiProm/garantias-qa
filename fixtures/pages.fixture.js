@@ -1,5 +1,5 @@
 const base =
-    require("@playwright/test");
+    require("./hooks.fixture");
 
 const {
     CreateTicketPage
