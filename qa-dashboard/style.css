@@ -1,0 +1,140 @@
+body {
+
+    font-family:
+        Segoe UI,
+        sans-serif;
+
+    background:
+        #f4f6f9;
+
+    margin:
+        0;
+
+    padding:
+        30px;
+}
+
+.container {
+
+    max-width:
+        1200px;
+
+    margin:
+        auto;
+}
+
+.cards {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        20px;
+
+    margin-bottom:
+        20px;
+}
+
+.card {
+
+    background:
+        white;
+
+    padding:
+        20px;
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.1);
+
+    text-align:
+        center;
+}
+
+.card p {
+
+    font-size:
+        32px;
+
+    font-weight:
+        bold;
+}
+
+.success {
+
+    border-left:
+        6px solid #22c55e;
+}
+
+.fail {
+
+    border-left:
+        6px solid #ef4444;
+}
+
+.warning {
+
+    border-left:
+        6px solid #f59e0b;
+}
+
+.section {
+
+    background:
+        white;
+
+    padding:
+        20px;
+
+    margin-top:
+        20px;
+
+    border-radius:
+        12px;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.1);
+}
+
+table {
+
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+}
+
+th {
+
+    background: #2563eb;
+    color: white;
+    padding: 12px;
+    text-align: left;
+
+}
+
+td {
+
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+canvas {
+
+    margin-top: 20px;
+    max-height: 350px;
+
+}
+
+#flakyTests li {
+
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e7eb;
+
+}

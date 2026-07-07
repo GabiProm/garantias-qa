@@ -11,7 +11,10 @@
     "reportes": "playwright test --grep @reportes",
     "apiui": "playwright test --grep @apiui",
     "test:ui": "playwright test --ui",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "history": "node scripts/generate-history.js",
+    "qa:dashboard": "python -m http.server 8080",
+    "qa:full": "npm run regression && npm run history"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",

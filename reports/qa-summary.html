@@ -1,0 +1,390 @@
+
+            <!DOCTYPE html>
+            <html lang="es">
+
+            <head>
+
+            <meta charset="UTF-8">
+
+            <title>
+            Reporte Ejecutivo QA
+            </title>
+
+            <style>
+
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            body{
+
+                font-family:
+                    'Segoe UI',
+                    sans-serif;
+
+                background:
+                    #f3f4f6;
+
+                padding:
+                    30px;
+
+            }
+
+            .container{
+
+                max-width:
+                    1200px;
+
+                margin:
+                    auto;
+
+            }
+
+            .header{
+
+                background:
+                    linear-gradient(
+                        135deg,
+                        #2563eb,
+                        #1e40af
+                    );
+
+                color:
+                    white;
+
+                padding:
+                    30px;
+
+                border-radius:
+                    16px;
+
+                margin-bottom:
+                    25px;
+
+                box-shadow:
+                    0 4px 12px rgba(0,0,0,.15);
+
+            }
+
+            .header h1{
+
+                margin-bottom:
+                    10px;
+
+            }
+
+            .grid{
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(auto-fit,minmax(220px,1fr));
+
+                gap:
+                    20px;
+
+                margin-bottom:
+                    25px;
+
+            }
+
+            .card{
+
+                background:
+                    white;
+
+                padding:
+                    20px;
+
+                border-radius:
+                    12px;
+
+                box-shadow:
+                    0 2px 10px rgba(0,0,0,.1);
+
+            }
+
+            .card-title{
+
+                color:
+                    #6b7280;
+
+                font-size:
+                    14px;
+
+                margin-bottom:
+                    10px;
+
+            }
+
+            .card-value{
+
+                font-size:
+                    32px;
+
+                font-weight:
+                    bold;
+
+            }
+
+            .passed{
+
+                color:
+                    #16a34a;
+
+            }
+
+            .failed{
+
+                color:
+                    #dc2626;
+
+            }
+
+            .skipped{
+
+                color:
+                    #d97706;
+
+            }
+
+            .section{
+
+                background:
+                    white;
+
+                padding:
+                    25px;
+
+                border-radius:
+                    12px;
+
+                box-shadow:
+                    0 2px 10px rgba(0,0,0,.1);
+
+                margin-bottom:
+                    25px;
+
+            }
+
+            .status{
+
+                color:
+                    #16a34a;
+
+                font-weight:
+                    bold;
+
+                font-size:
+                    18px;
+
+            }
+
+            table{
+
+                width:
+                    100%;
+
+                border-collapse:
+                    collapse;
+
+                margin-top:
+                    15px;
+
+            }
+
+            th{
+
+                background:
+                    #2563eb;
+
+                color:
+                    white;
+
+                text-align:
+                    left;
+
+                padding:
+                    12px;
+
+            }
+
+            td{
+
+                padding:
+                    12px;
+
+                border-bottom:
+                    1px solid #e5e7eb;
+
+            }
+
+            .success-rate{
+
+                font-size:
+                    40px;
+
+                font-weight:
+                    bold;
+
+                color:
+                    #2563eb;
+
+                text-align:
+                    center;
+
+            }
+
+            .footer{
+
+                text-align:
+                    center;
+
+                color:
+                    #6b7280;
+
+                margin-top:
+                    20px;
+
+            }
+
+            </style>
+
+            </head>
+
+            <body>
+
+            <div class="container">
+
+            <div class="header">
+
+            <h1>
+            📊 Reporte Ejecutivo QA
+            </h1>
+
+            <p>
+            Framework de Automatización - Garantias QA
+            </p>
+
+            </div>
+
+            <div class="grid">
+
+            <div class="card">
+            <div class="card-title">
+            Total de Tests
+            </div>
+            <div class="card-value">
+            30
+            </div>
+            </div>
+
+            <div class="card">
+            <div class="card-title">
+            ✅ Passed
+            </div>
+            <div class="card-value passed">
+            30
+            </div>
+            </div>
+
+            <div class="card">
+            <div class="card-title">
+            ❌ Failed
+            </div>
+            <div class="card-value failed">
+            0
+            </div>
+            </div>
+
+            <div class="card">
+            <div class="card-title">
+            ⏭ Skipped
+            </div>
+            <div class="card-value skipped">
+            0
+            </div>
+            </div>
+
+            </div>
+
+            <div class="section">
+
+            <h2>
+            🏁 Resultado General
+            </h2>
+
+            <br>
+
+            <p class="status">
+            PASSED
+            </p>
+
+            </div>
+
+            <div class="section">
+
+            <h2>
+            📈 Success Rate
+            </h2>
+
+            <br>
+
+            <div class="success-rate">
+            100%
+            </div>
+
+            </div>
+
+            <div class="section">
+
+            <h2>
+            ⏱ Resumen de Ejecución
+            </h2>
+
+            <br>
+
+            <p>
+            <strong>Fecha:</strong>
+            6/7/2026, 5:38:58 p. m.
+            </p>
+
+            <br>
+
+            <p>
+            <strong>Duración:</strong>
+            294.58 segundos
+            </p>
+
+            </div>
+
+            <div class="section">
+
+            <h2>
+            ❌ Pruebas Fallidas
+            </h2>
+
+            
+            <br>
+            <p>
+            ✅ No se registraron pruebas fallidas.
+            </p>
+            
+
+            </div>
+
+            <div class="footer">
+
+            Reporte generado automáticamente por Playwright Custom Reporter
+
+            </div>
+
+            </div>
+
+            </body>
+
+            </html>
+            

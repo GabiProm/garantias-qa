@@ -21,11 +21,11 @@ const test = base.extend({
         const ticket =
             generateTicketData();
 
-        await page.goto("/crear");
+        await page.goto("/crear", {waintUntil: "networkidle"});
 
         await createPage.crearTicket(ticket);
 
-        await page.goto("/buscar");
+        await page.goto("/buscar", {waintUntil: "networkidle"});
 
         await searchPage.buscarPorSerie(
             ticket.serie
