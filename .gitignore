@@ -66,4 +66,8 @@ coverage/
 *.tmp
 *.temp
 
+# QA Reports
 reports/history/
+reports/qa-summary.json
+reports/qa-summary.html
+qa-dashboard/history.json
