@@ -2,8 +2,19 @@ async function loadDashboard() {
 
     try {
 
+        /*
         const summaryResponse =
-            await fetch("/reports/qa-summary.json");
+            await fetch("../reports/qa-summary.json");
+        */
+
+        const summaryUrl =
+            new URL(
+                "../reports/qa-summary.json",
+                window.location.href
+            );
+
+        const summaryResponse =
+            await fetch(summaryUrl);
 
         const summary =
             await summaryResponse.json();
