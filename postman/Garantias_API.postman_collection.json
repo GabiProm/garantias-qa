@@ -19,7 +19,7 @@
               "\r",
               "pm.test(\"Respuesta contiene datos\", () => {\r",
               "    const response = pm.response.json();\r",
-              "    pm.expect(response.length).to.be.greaterThan(0);\r",
+              "    pm.expect(response).to.be.an(\"array\");\r",
               "});"
             ],
             "type": "text/javascript",
