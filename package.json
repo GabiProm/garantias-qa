@@ -14,7 +14,10 @@
     "report": "playwright show-report",
     "history": "node scripts/generate-history.js",
     "qa:dashboard": "python -m http.server 8080",
-    "qa:full": "npm run regression && npm run history"
+    "qa:full": "npm run regression && npm run history",
+    "performance:smoke": "k6 run performance/smoke-performance.test.js",
+    "performance:load": "k6 run performance/load-tickets.test.js",
+    "performance:stress": "k6 run performance/stress-tickets.test.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
