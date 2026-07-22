@@ -20,7 +20,9 @@
     "performance:stress": "k6 run performance/stress-tickets.test.js",
     "performance:create": "k6 run performance/create-ticket.test.js",
     "performance:search": "k6 run performance/create-and-search-ticket.test.js",
-    "performance:crud": "k6 run performance/crud-ticket-flow.test.js" 
+    "performance:crud": "k6 run performance/crud-ticket-flow.test.js",
+    "api": "playwright test --grep @api",
+    "negative": "playwright test --grep @negative"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
